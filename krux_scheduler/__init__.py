@@ -155,7 +155,7 @@ class Scheduler(object):
         self.last_job_event = None
 
         ### in case we got some of the information via the CLI
-        self.args       = self.parser.parse_args()
+        self.args = self.parser.parse_args()
 
         ### Own process information - always record this when we have
         ### a chance to do so.
@@ -250,6 +250,9 @@ class Scheduler(object):
 
                     error = 'Job scheduled at %s failed: %s' % \
                                 (event.scheduled_run_time, event.exception)
+
+                    ### Send an extra stat so we capture errors for these events
+                    stats.incr('scheduler.errors.%s' % name)
 
                     ### PagerDuty/email integration here!
                     log.error(error)
