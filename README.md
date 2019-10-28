@@ -1,3 +1,8 @@
+![](https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Terminate_wind_up_symbol_stop_send_away_sack.png)
+
+# Deprecated and no longer in use or being maintained.
+This repo exists as a historical archive.
+
 python-krux-scheduler
 =====================
 
@@ -15,13 +20,13 @@ import time
 from krux_scheduler import Application
 
 def main():
-    ### The name must be unique to the organization. The object  
+    ### The name must be unique to the organization. The object
     ### returned inherits from krux.cli.Application, so it provides
     ### all that functionality as well.
     app = Application( name = 'krux-my-periodic-job' )
-    
-    ### This is the scheduler object, which behaves exactly 
-    ### like an APScheduler object, but with logging, stats 
+
+    ### This is the scheduler object, which behaves exactly
+    ### like an APScheduler object, but with logging, stats
     ### and CLI support added.
     scheduler = app.scheduler
 
@@ -29,7 +34,7 @@ def main():
     def periodic_job():
         print 'Called %s at %s' % (app.name, time.asctime())
 
-    ### add the periodic job to the scheduler. This follows 
+    ### add the periodic job to the scheduler. This follows
     ### APSchedulers arguments & functionality exactly.
     scheduler.add_cron_job(
         func   = periodic_job,
@@ -56,7 +61,7 @@ Seeing it in action
 
 This library comes with a CLI tool bundled that shows you how the code works.
 If you run this, it'll alternate between throwing an exception (which is caught)
-and a simple printed message. 
+and a simple printed message.
 
 These are the options and how you can invoke it:
 
